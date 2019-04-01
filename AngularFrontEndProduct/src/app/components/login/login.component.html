@@ -1,0 +1,42 @@
+<h2>Login</h2>
+
+<div class="col-lg-12">
+
+  <form [formGroup]='loginForm' (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+
+      <label>Email: </label>
+      <input type="text" formControlName="email" class="form-control" placeholder="Email" />
+
+      <div *ngIf='submitted && loginForm.controls.email.errors' class="error">
+        <div *ngIf='loginForm.controls.email.errors' class="alert alert-warning">
+          Email is Required
+        </div>
+      </div>
+
+      <br>
+    </div>
+    <div class="form-group">
+      <label>Password:</label>
+      <input type="password" formControlName="password" class="form-control" placeholder="Password" />
+
+      <div *ngIf='submitted && loginForm.controls.password.errors' class="error">
+        <div class="alert alert-warning" *ngIf='loginForm.controls.password.errors'>
+          Password is Required
+        </div>
+      </div>
+
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">Login</button>
+    <button type="reset" class=" btn btn-warning">Reset</button>
+    <button routerLink="/" class="btn btn-danger"> Home</button>
+  </form>
+</div>
+
+<div>
+  <div *ngFor="let u of user">
+    {{u.email}}
+  </div>
+</div>
